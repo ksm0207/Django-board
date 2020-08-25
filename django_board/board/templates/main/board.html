@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><h3>Board List</h3></title>
+</head>
+<body>
+
+    <h3>게시판 테스트</h3>
+    <!-- 게시판(postlist)의 게시글 list를 하나씩 가져옴 -->
+    <!-- {%}  내부엔 파이썬이 사용됨 -->
+<table>
+    {% for list in postlist  %}
+      <ul>
+          <li>{{list.postname}}</li>
+          <li>{{list.contents}}</li>
+      </ul>
+    {% endfor %}
+</table>
+</body>
+</html>
