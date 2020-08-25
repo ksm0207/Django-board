@@ -12,3 +12,4 @@ class Post(models.Model):
     # 게시글의 제목이 Post object(1) (2) 대신 아래함수 사용
     def __str__(self):
         return self.postname
+
