@@ -10,7 +10,12 @@
     <h3>게시글 개별 페이지 테스트 </h3>
     <p>{{post.postname}}</p>
     <p>{{post.contents}}</p>
+    
+    {% if post.photos %}
+     <img src = "{{ post.photos.url }}" alt="" height="150px">
+    {% endif %}
     <a href="/board/">목록</a>
+
 
     
 </body>

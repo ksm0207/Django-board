@@ -16,6 +16,7 @@ def board(request):
 
     # Post를 가져와 postlist 변수에 저장
     postlist = Post.objects.all()
+    print(postlist)
     # board.html 페이지를 열때 모든 Post인 postlist도 같이 가져옴
     return render(request, "main/board.html", {"postlist": postlist})
 
