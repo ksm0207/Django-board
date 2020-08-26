@@ -49,3 +49,10 @@ def new_post(request):
         return redirect("/board/")
     return render(request, "main/post.html")
 
+
+def remove_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        post.delete()
+        return redirect("board")
+    return render(request, "main/remove_post.html", {"Post": post})
