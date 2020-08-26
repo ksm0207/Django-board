@@ -8,14 +8,16 @@
 <body>
 
     <h3>게시판 테스트</h3>
+    <li><a href="/">뒤로가기</a></li>
     <!-- 게시판(postlist)의 게시글 list를 하나씩 가져옴 -->
     <!-- {%}  내부엔 파이썬이 사용됨 -->
 <table>
     {% for list in postlist  %}
       <ul>
-        <li><a href="{{list.pk}}">{{list.postname}}</a></li>
+        <li><a href="{{list.pk}}">제목:  {{list.postname}}</a></li>
       </ul>
     {% endfor %}
+    <button><a href="new_post/">글쓰기</a></button>
 </table>
 </body>
 </html>
