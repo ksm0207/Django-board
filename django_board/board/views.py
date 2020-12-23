@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
+from .models import Post
 
-from .models import Post  # View Model ( Post 게시글 ) 가져오기
+# View Model ( Post 게시글 ) 가져오기
 
 # render : html템플릿을 렌더링을 해준다 아래의 index 라는 함수는 서버에 요청이 들어왔을 시 index.html을
 # 렌더링 해서 나에게 보여주는 역활을함
@@ -56,3 +57,15 @@ def remove_post(request, pk):
         post.delete()
         return redirect("board")
     return render(request, "main/remove_post.html", {"Post": post})
+
+
+def update_post(request, pk):
+    post = Post.objects.get(pk=pk)
+    print(post)
+    if request.method == "POST":
+        post.postname = (request.POST["postname"],)
+        post.contents = (request.POST["contents"],)
+        post.photos = (request.POST["photos"],)
+        return redirect("/board/" + str(post.pk))
+    else:
+        return render(request, "main/update.html", {"Post": post})
